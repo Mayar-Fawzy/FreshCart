@@ -1,0 +1,59 @@
+<section class="bg-main-light rounded-4 shadow p-3 my-2">
+  <h1 class="h2 text-main">login Now:</h1>
+
+  <form [formGroup]="loginform" (ngSubmit)="loginSubmit()">
+    <div class="my-2">
+      <label for="email">Email</label>
+
+      <input
+        formControlName="email"
+        id="email"
+        type="text"
+        class="form-control"
+      />
+      @if(loginform.get('email')?.errors&&loginform.get('email')?.touched){
+      <div class="alert alert-danger w-50">
+        @if(loginform.get('email')?.getError('required')){
+        <p class="m-0">email Is Required</p>
+        }
+      </div>
+      }
+    </div>
+    <div class="my-2">
+      <label for="email">Password</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="text"
+        class="form-control"
+      />
+      @if(loginform.get('password')?.errors&&loginform.get('password')?.touched){
+      <div class="alert alert-danger w-50">
+        @if(loginform.get('password')?.getError('required')){
+        <p class="m-0">password Is Required</p>
+        } @if(loginform.get('password')?.getError('pattern')){
+        <p class="m-0">must be at least 6 chars</p>
+        }
+      </div>
+      }
+    </div>
+
+   <div class="d-flex justify-content-between"> <a routerLink="/register" class="cr"> already have accout? Sigup </a>
+    <div class="mt-4 d-flex align-items-center justify-content-end gap-4">
+     
+      <a routerLink="/forget" class="">Forget Password?</a>
+      <button type="submit" class="btn btn-warning">
+        login @if(isloading){
+        <span>
+          <i class="fas fa-spin fa-spinner"></i>
+        </span>
+        }
+      </button>
+    </div>
+    
+    @if(msgError){
+    <p class="alert alert-danger w-50 m-0">{{ msgError }}</p>
+    }
+   </div>
+  </form>
+</section>

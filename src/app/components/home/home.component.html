@@ -1,0 +1,40 @@
+<!-- Slider
+<div>Some tags before</div>
+
+<div>Some tags after</div> -->
+<!-- products -->
+<section>
+  <h2 class="text-main m-4 text-center">Popular Products</h2>
+  <input  [(ngModel)]="text" type="search" placeholder="search" class="form-control w-50 mx-auto my-4">
+  <div class="row g-3">
+    @for(product of producrtlist.slice(0,12) |search :text;track product.id){
+    <div class="col-md-2 ">
+     
+      <div class="product p-1 text-center "> 
+        <div [routerLink]="['/details',product.id]" style="cursor: pointer;">
+        <img [src]="product.imageCover" class="w-100" alt="" />
+        <h3>{{ product.category.name  }}</h3>
+        <h4 class="h6">{{ product.title| sale:2 }}</h4>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span>{{ product.price }} EGP</span>
+
+          <div>
+            @for (num of [1,2,3,4,5].slice(0,product.ratingsAverage); track $index)
+             {
+              <span><i class="fas fa-star rating-color"></i></span>
+             }
+             @if(product.ratingsAverage %1 !==0){
+              <i class="fa-solid fa-star-half-stroke rating-color"></i>
+             }
+          
+            <span class="text-muted">{{ product.ratingsAverage }}</span>
+          </div>
+        </div>
+        </div>
+        <button class="btn-main w-100" (click)="AddCart(product.id)" >Add To Cart</button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
