@@ -36,8 +36,10 @@ export const routes: Routes = [
             {path:'categories',component:CategoriesComponent},
             {path:'cart',component:CartComponent},
             {path:'details/:id',component:DetailsComponent},  
-            {path:'allorders',component:AllordersComponent},//show after Payment
+           
             {path:'orders/:id',component:OrdersComponent}//show to payment
+            ,
+            {path:'allorders',component:AllordersComponent},//show after Payment
            
         ]
     },
