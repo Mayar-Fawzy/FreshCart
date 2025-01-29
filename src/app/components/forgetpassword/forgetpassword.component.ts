@@ -64,8 +64,8 @@ export class ForgetpasswordComponent {
        localStorage.setItem('userToken',Res.token);
        //2- decode token
        this._AuthService.saveuserdata();
-       //3-navigate to home
-         this._Router.navigate(['home'])
+       //3-navigate to login
+         this._Router.navigate(['login'])
       },error:(err)=>{
         console.log(err);
       }
