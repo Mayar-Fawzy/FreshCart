@@ -11,6 +11,7 @@ import { SalePipe } from '../../core/pipes/sale.pipe';
 import { SearchPipe } from '../../core/pipes/search.pipe';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CartService } from '../../Services/cart.service';
+import {  NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   private readonly _ProductsService = inject(ProductsService);
   private readonly _CategoriesService = inject(CategoriesService);
   private readonly _CartService = inject(CartService);
+  private readonly _NgxSpinnerService = inject(NgxSpinnerService);
   producrtlist: Iproducts[] = [];
   customOptions: OwlOptions = {
     loop: true,
@@ -57,11 +59,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     //categories
     //sloading
+    this._NgxSpinnerService.show('loading1');
     this._CategoriesService.GetAllCategories().subscribe({
       next: (res) => {
         //hide loading
         this.categoriesList = res.data;
         console.log(this.categoriesList);
+        this._NgxSpinnerService.hide('loading1');
       },
 
       error: (err) => {

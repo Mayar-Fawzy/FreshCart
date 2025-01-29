@@ -42,11 +42,7 @@ export class LoginComponent {
         
           
         },
-        error:(err:HttpErrorResponse)=>{
-          this.msgError=err.error.message;
-       console.log(this.msgError);
-          this.isloading=false;
-        }
+       
       })
     }
     else{
