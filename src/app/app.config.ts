@@ -13,9 +13,10 @@ import { errorInterceptor } from './core/Interceptors/error.interceptor';
 import { TostService } from './Services/tost.service';
 import { provideToastr  } from 'ngx-toastr';
 import {  NgxSpinnerModule } from 'ngx-spinner';
+import { loadingInterceptor } from './core/Interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes , withViewTransitions()),provideClientHydration(), provideHttpClient(withFetch(),withInterceptors([headerInterceptor,errorInterceptor]))
+  providers: [provideRouter(routes , withViewTransitions()),provideClientHydration(), provideHttpClient(withFetch(),withInterceptors([headerInterceptor,errorInterceptor,loadingInterceptor]))
     ,
     provideAnimations(),
     provideToastr(),
