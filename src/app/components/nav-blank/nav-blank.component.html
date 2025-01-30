@@ -30,7 +30,7 @@
             class="nav-link"
             routerLink="products"
             routerLinkActive="active-link"
-            >product</a
+            >products</a
           >
         </li>
 
@@ -49,10 +49,15 @@
         </li>
       </ul>
 
+      <ul>
+     
+      </ul>
+
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="cart" routerLinkActive="active-link">
-            <i class="fa-solid fa-cart-shopping"></i>
+          <a class="nav-link position-relative" routerLink="cart" routerLinkActive="active-link">
+            <i class="fa-solid fa-cart-shopping fa-2x"></i>
+            <span class="badge position-absolute st top-0 start-0" style="background-color: rgb(66, 110, 0); border-radius: 20px;">{{NavCartCount()}}</span>
           </a>
         </li>
         <li class="nav-item">

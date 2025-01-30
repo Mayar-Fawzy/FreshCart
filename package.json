@@ -22,6 +22,8 @@
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.11",
     "@fortawesome/fontawesome-free": "^6.7.0",
+    "@ngx-translate/core": "^16.0.4",
+    "@ngx-translate/http-loader": "^16.0.1",
     "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "ngx-owl-carousel-2": "^6.0.10",

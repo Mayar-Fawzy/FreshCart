@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
       next:(res)=>{
          //override هيجيب الداتا الي موجوده بعد الحذف بس
          this.cartDetails=res.data
-         console.log(this.cartDetails)
+        this._CartService.CartNumber.set(res.numOfCartItems);
       },
       error:(err)=>{console.log(err)}})}
 
@@ -53,8 +53,9 @@ export class CartComponent implements OnInit {
             next:(res)=>{
              if(res.message=='success'){
               this.cartDetails={}as Icart
+              this._CartService.CartNumber.set(0);
               }
-         console.log(res);
+                console.log(res);
             },
             error:(err)=>{console.log(err)}})
         }

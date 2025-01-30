@@ -87,10 +87,9 @@ export class HomeComponent implements OnInit {
     this._CartService.addProductToCart(id).subscribe({
       next: (res) => {
         console.log(res);
+        this._CartService.CartNumber.set(res.numOfCartItems);
       },
-      error: (err) => {
-        console.log(err);
-      },
+     
     });
   }
   ngOnDestroy(): void {
